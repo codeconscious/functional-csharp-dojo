@@ -25,6 +25,13 @@ var randomMultipliers = Enumerable.Range(1, 10)
     .ToImmutableList();
 randomMultipliers.ForEach(multiplier => WriteWithExpression(multiplier(5)));
 
+// Stacking string operations
+var getMiddlePosition = (string s) => (int) Math.Ceiling(s.Length / 2f);
+var reverse = (string s) => string.IsNullOrWhiteSpace(s) ? string.Empty : s.Reverse().ToString();
+var upper = (string s) => string.IsNullOrWhiteSpace(s) ? string.Empty : s.ToUpperInvariant();
+WriteWithExpression(reverse(upper("hello world"))); // ここはもう少し考えねばならぬ。
+//var addCharToMiddle = Func<char, Func<string,int>> f => string.
+
 
 static void WriteWithExpression(object result, [CallerArgumentExpression("result")] string? expression = null)
 {
